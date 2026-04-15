@@ -10,5 +10,5 @@
 
 - [Google font](https://fonts.google.com/)
 
-### Live demo: [WebNova]()
+### Live demo: [WebNova](https://web-nova-iota.vercel.app/)
  
