@@ -51,6 +51,7 @@
           class="nav-links backdrop-blur-md lg:backdrop-blur-none bg-white/10 lg:bg-transparent z-50 lg:z-0 lg:static fixed min-h-screen lg:min-h-fit right-0 top-0 py-20 lg:py-5 w-1/2 lg:w-auto hidden lg:flex items-center px-5"
         >
           <ul
+            id="menu"
             class="text-[18px] lg:text-xl flex lg:flex-row flex-col items-center justify-center lg:gap-10 gap-5 py-10 lg:py-0"
           >
             <li class="relative">
@@ -144,11 +145,41 @@
       </section>
     </div>
     <script>
+      // const navLinks = document.querySelector(".nav-links");
+      // function onToggleMenu(e) {
+      //   e.name = e.name === "menu" ? "close" : "menu";
+      //   navLinks.classList.toggle("hidden");
+      // }
+
+      // const links = document.querySelectorAll("#menu a");
+      // links.forEach((link) => {
+      //   link.addEventListener("click", () => {
+      //     navLinks.classList.add("hidden");
+      //   });
+      // });
       const navLinks = document.querySelector(".nav-links");
-      function onToggleMenu(e) {
-        e.name = e.name === "menu" ? "close" : "menu";
+      const links = document.querySelectorAll("#menu a");
+      let menuIcon = null;
+
+      function onToggleMenu(icon) {
+        menuIcon = icon;
+
+        const isOpen = !navLinks.classList.contains("hidden");
+
         navLinks.classList.toggle("hidden");
+
+        icon.name = isOpen ? "menu" : "close";
       }
+
+      links.forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.add("hidden");
+
+          if (menuIcon) {
+            menuIcon.name = "menu";
+          }
+        });
+      });
     </script>
   </body>
 </html>
